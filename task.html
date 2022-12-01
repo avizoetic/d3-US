@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 Task</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    #resetbtn {
+      background-color: #ddd;
+      color: black;
+      border-radius: 50%;
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+    #resetbtn:hover {
+      background-color: #f1f1f1;
+      color: black;
+    }
+  </style>
+  <body>
+    <a id="resetbtn"> &#8249; </a>
+    <div class="box">
+      <div class="row">
+        <div class="column">
+          <h2 id="maptitle"></h2>
+          <svg id="legendsvg" width="30%"></svg>
+          <svg id="mapsvg"></svg>
+        </div>
+        <div class="column">
+          <h2 id="bartitle"></h2>
+          <div>
+            <input
+              type="radio"
+              name="field"
+              id="BIRTHS2015"
+              value="BIRTHS2015"
+              checked
+            />
+            <label for="BIRTHS2015">Birth2015</label>
+            <input
+              type="radio"
+              name="field"
+              id="DEATHS2015"
+              value="DEATHS2015"
+            />
+            <label for="DEATHS2015">Death2015</label>
+          </div>
+          <div style="overflow-y: scroll; max-height: 80vh">
+            <svg
+              id="barsvg"
+              style="overflow-y: scroll"
+              height="100%"
+              width="100%"
+            ></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <button id="resetbtn">back</button> -->
+  </body>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  <script src="/utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
+  <script defer src="/index.js"></script>
+</html>
